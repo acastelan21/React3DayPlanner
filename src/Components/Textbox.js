@@ -28,7 +28,7 @@ export class Textbox extends React.Component{
                 "term": ""
             })
     }
-    return(){
+    render(){
         return(
             <div className="container">
                 <form onSubmit={this.handleSubmit} className ="form">

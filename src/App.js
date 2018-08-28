@@ -1,8 +1,10 @@
 import React from "react"; 
-import ReactDom from "react-dom";
+
+import "hack"; 
+import SimpleStorage from "react-simple-storage";
 import {Header} from "./Components/Header";
 import {Textbox} from "./Components/Textbox";
-import { DisplayToday, DisplayTomorrow, DisplayDayAfterTomorrow } from "./Components/Display";
+import {DisplayToday, DisplayTomorrow, DisplayDayAfterTomorrow } from "./Components/Display";
 
 class App extends React.Component{
   constructor(props){
@@ -11,7 +13,7 @@ class App extends React.Component{
       "Today": [],
       "Tomorrow": [],
       "Day_After_Tomorrow": [],
-      "username": "yo buddy!"
+      "username": "Hello Alvaro!"
     }
     this.updateEntry = this.updateEntry.bind(this)
     this.deleteEntry =this.deleteEntry.bind(this)
@@ -73,15 +75,17 @@ class App extends React.Component{
   }
 
  render (){
+   
    return(
      <div>
+       <SimpleStorage parent={this} />
        <Header nam={this.state.username}/>
        <Textbox updateEntry={this.updateEntry}/>
        <hr/>
        <div className="grid">
-        <DisplayToday items={this.setState.Today} deleteItem={this.deleteEntry}/>
-        <DisplayTomorrow items={this.setState.Tomorrow} deleteItem={this.deleteEntry}/>
-        <DisplayDayAfterTomorrow items={this.setState.Day_After_Tomorrow} delete={this.deleteEntry}/>
+        <DisplayToday items={this.state.Today} deleteItem={this.deleteEntry}/>
+        <DisplayTomorrow items={this.state.Tomorrow} deleteItem={this.deleteEntry}/>
+        <DisplayDayAfterTomorrow items={this.state.Day_After_Tomorrow} delete={this.deleteEntry}/>
 
        </div>
     
